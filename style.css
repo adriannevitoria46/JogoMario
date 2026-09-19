@@ -7,9 +7,10 @@ box-sizing: border-box;
 .game-board{
 width: 80%;
 height: 500px;
-border: 1px solid #333;
+border-bottom: 15px solid#3bcc28;
 margin: 0 auto;
 position: relative;
+background: linear-gradient(#87CEEB, #E0F6FF);
 }
 
 .pipe{
@@ -31,6 +32,21 @@ bottom: 0;
        animation: jump 1.5s ease-out;
 }
 
+.clouds{
+    position:absolute;
+    width: 450px;
+    animation: clouds-animation 20s infinite linear;
+
+}
+
+@keyframes clouds-animation {
+    from{
+        right: -550px;
+    }
+    to{
+        right: 100%;
+    }
+}
 @keyframes jump {
     0%{
         bottom: 0;
