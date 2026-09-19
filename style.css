@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* ========================= */
+/*          TELA              */
+/* ========================= */
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* ========================= */
+/*       ÁREA DO JOGO         */
+/* ========================= */
+
+.game-board {
+    width: 100vw;
+    height: 100vh;
+
+    border-bottom: 15px solid #3bcc28;
+
+    margin: 0;
+
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+
+/* ========================= */
+/*           CANO             */
+/* ========================= */
+
+.pipe {
+    position: absolute;
+
+    height: 80px;
+    width: 60px;
+
+    bottom: 0;
+    right: -80px;
+
+    animation: pipe-animation 4s infinite linear;
+}
+
+
+/* ========================= */
+/*          MARIO             */
+/* ========================= */
+
+.Mario {
+    width: 150px;
+
+    position: absolute;
+
+    bottom: 0;
+    left: 0;
+}
+
+
+/* ========================= */
+/*          NUVENS            */
+/* ========================= */
+
+.clouds {
+    position: absolute;
+
+    width: 450px;
+
+    animation: clouds-animation 20s infinite linear;
+}
+
+
+/* ========================= */
+/*           PULO             */
+/* ========================= */
+
+.jump {
+    animation: jump 1.5s ease-out;
+}
+
+
+/* ========================= */
+/*         GAME OVER          */
+/* ========================= */
+
+.game-over {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.78);
+
+    display: none;
+
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 10;
+
+    animation: aparecer-game-over 0.5s ease-out;
+}
+
+
+/* ========================= */
+/*      TEXTO GAME OVER       */
+/* ========================= */
+
+.game-over h1 {
+    color: #ff0000;
+
+    font-size: 70px;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: 900;
+
+    text-shadow:
+        4px 4px 0px #000,
+        0px 0px 15px #ff0000,
+        0px 0px 30px #ff0000;
+
+    animation:
+        pulsar-game-over 0.8s infinite alternate,
+        tremer-game-over 0.15s infinite;
+}
+
+
+/* ========================= */
+/*          BOTÃO             */
+/* ========================= */
+
+.game-over button {
+    margin-top: 30px;
+
+    padding: 15px 35px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: white;
+
+    background: #e60000;
+
+    border: 3px solid white;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0px 5px 0px #8b0000,
+        0px 0px 15px #ff0000;
+
+    transition: 0.2s;
+}
+
+
+/* ========================= */
+/*      BOTÃO COM MOUSE       */
+/* ========================= */
+
+.game-over button:hover {
+    transform: scale(1.1);
+
+    background: #ff2222;
+
+    box-shadow:
+        0px 7px 0px #8b0000,
+        0px 0px 25px #ff0000;
+}
+
+
+/* ========================= */
+/*       BOTÃO CLICADO        */
+/* ========================= */
+
+.game-over button:active {
+    transform: scale(0.95);
+
+    box-shadow:
+        0px 2px 0px #8b0000;
+}
+
+
+/* ========================= */
+/*    ANIMAÇÃO DE ENTRADA     */
+/* ========================= */
+
+@keyframes aparecer-game-over {
+
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+/* ========================= */
+/*    GAME OVER PULSANDO      */
+/* ========================= */
+
+@keyframes pulsar-game-over {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.12);
+    }
+}
+
+
+/* ========================= */
+/*     GAME OVER TREMENDO     */
+/* ========================= */
+
+@keyframes tremer-game-over {
+
+    0% {
+        margin-left: 0;
+    }
+
+    25% {
+        margin-left: 3px;
+    }
+
+    50% {
+        margin-left: -3px;
+    }
+
+    75% {
+        margin-left: 3px;
+    }
+
+    100% {
+        margin-left: 0;
+    }
+}
+
+
+/* ========================= */
+/*      ANIMAÇÃO DA NUVEM     */
+/* ========================= */
+
+@keyframes clouds-animation {
+
+    from {
+        right: -550px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+
+/* ========================= */
+/*       ANIMAÇÃO DO PULO     */
+/* ========================= */
+
+@keyframes jump {
+
+    0% {
+        bottom: 0;
+    }
+
+    40% {
+        bottom: 120px;
+    }
+
+    50% {
+        bottom: 120px;
+    }
+
+    60% {
+        bottom: 120px;
+    }
+
+    70% {
+        bottom: 120px;
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+
+/* ========================= */
+/*      ANIMAÇÃO DO CANO      */
+/* ========================= */
+
+@keyframes pipe-animation {
+
+    from {
+        right: -80px;
+    }
+
+    to {
+        right: 100%;
+    }
+}
