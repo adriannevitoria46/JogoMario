@@ -1,6 +1,10 @@
 # JogoMario
 ## Descrição
-Este projeto consiste em um jogo inspirado no Super Mario. O objetivo é fazer com que o personagem salte os obstáculos, utilizando a tecla espaço e não tocar nos tubos, que aparecem no seu caminho.
+Este projeto consiste no desenvolvimento de um jogo inspirado no clássico Super Mario. O jogador controla um personagem que precisa percorrer o cenário e superar os desafios que aparecem ao longo do caminho.
+O projeto busca desenvolver uma experiência simples e divertida, além de colocar em prática conceitos de programação, como movimentação de personagens, comandos de entrada e colisões
+
+## Objetivo
+O objetivo do jogo é fazer com que o personagem salte utilizando a tecla espaço, desviando dos tubos e dos demais desafios presentes no cenário. O jogador deve evitar colisões para continuar avançando.
 
 ## Teconologias utilizadas:
 -HTML
