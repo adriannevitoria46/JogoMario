@@ -1,37 +1,77 @@
-alert("O melhor jogo do mundo");
-
 const mario = document.querySelector('.Mario');
 const pipe = document.querySelector('.pipe');
+const gameOver = document.querySelector('.game-over');
+
+
+// =========================
+//          PULO
+// =========================
 
 const jump = () => {
+
+    if (mario.classList.contains('jump')) {
+        return;
+    }
+
     mario.classList.add('jump');
 
     setTimeout(() => {
         mario.classList.remove('jump');
-    }, 1500);
+    }, 800);
 };
 
-const loop = setInterval(() => {
+document.addEventListener('keydown', jump);
+
+
+// =========================
+//         COLISÃO
+// =========================
+
+const collisionCheck = setInterval(() => {
+
     const pipePosition = pipe.offsetLeft;
+
     const marioPosition = +window
         .getComputedStyle(mario)
-        .bottom.replace('px', '');
+        .bottom
+        .replace('px', '');
 
-    console.log(marioPosition);
 
-    if (pipePosition <= 120 && pipePosition > 0 && marioPosition < 80) {
+    if (
+        pipePosition <= 120 &&
+        pipePosition > 0 &&
+        marioPosition < 80
+    ) {
+
+        // Para o cano
         pipe.style.animation = 'none';
+
         pipe.style.left = `${pipePosition}px`;
 
+
+        // Para o Mario
         mario.style.animation = 'none';
+
         mario.style.bottom = `${marioPosition}px`;
 
-        mario.src = 'assets/images/game-over.png';
-        mario.style.width = '75px';
-        mario.style.marginLeft = '50px';
 
-        clearInterval(loop);
+        // Mostra o GAME OVER
+        gameOver.style.display = 'flex';
+
+
+        // Para a verificação da colisão
+        clearInterval(collisionCheck);
     }
+
 }, 10);
 
-document.addEventListener('keydown', jump);
+
+// =========================
+//     JOGAR NOVAMENTE
+// =========================
+
+function restartGame() {
+
+    window.location.reload();
+
+}

@@ -1,21 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Jogo do Mário</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
     <div class="game-board">
-        <img src="./assets/images/clouds.png" class="clouds">
+
+        <img src="assets/images/clouds.png" class="clouds">
         <img src="assets/images/pipe.png" class="pipe">
         <img src="assets/images/mario.gif" class="Mario">
-        
-        
+
+        <div class="game-over">
+            <h1>GAME OVER</h1>
+            <button onclick="restartGame()">Jogar Novamente</button>
+        </div>
+
     </div>
+
     <script src="script.js"></script>
 
 </body>
-</html>>
+
+</html>
